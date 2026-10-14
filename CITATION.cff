@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software or computational artifact, please cite it as below."
+authors:
+  - family-names: "Kumar"
+    given-names: "Shreyas"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+    affiliation: "School of Computer Science and Engineering (SCOPE), Vellore Institute of Technology (VIT), Chennai, India"
+  - family-names: "Rishikeshan"
+    given-names: "C. A."
+    affiliation: "School of Computer Science and Engineering (SCOPE), Vellore Institute of Technology (VIT), Chennai, India"
+title: "REASON-X: Joint Topology-Budget Allocation via Utility-Surface Regression for Test-Time Compute"
+version: 1.0.0
+doi: 10.5281/zenodo.placeholder
+date-released: 2026-10-14
+url: "https://github.com/shkshreyas/JTBA"
+repository-code: "https://github.com/shkshreyas/JTBA"
+keywords:
+  - "large-language-models"
+  - "test-time-compute"
+  - "mathematical-reasoning"
+  - "utility-surface-regression"
+  - "lagrangian-optimization"
+  - "conformal-risk-control"
+license: MIT

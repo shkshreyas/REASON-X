@@ -1,0 +1,29 @@
+# Archived / Unnecessary Notebooks & Drafts
+archive/
+*.nbconvert.ipynb
+
+# Machine Learning Checkpoints & Utility Tensors (Hosted on Hugging Face: shkshreyas/reason-x-ckpt)
+*.pkl
+*.pt
+*.bin
+*.zip
+*.tar.gz
+rx_out/
+ckpt/
+_hf_pull/
+
+# Python & Jupyter Caches
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.virtual_documents/
+
+# Environment & OS files
+.env
+.venv/
+env/
+venv/
+.DS_Store
+desktop.ini
+Thumbs.db
