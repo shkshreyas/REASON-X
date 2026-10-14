@@ -8,7 +8,7 @@ authors:
   - family-names: "Rishikeshan"
     given-names: "C. A."
     affiliation: "School of Computer Science and Engineering (SCOPE), Vellore Institute of Technology (VIT), Chennai, India"
-title: "REASON-X: Joint Topology-Budget Allocation via Utility-Surface Regression for Test-Time Compute"
+title: "Learning where to spend test-time compute: a utility-surface allocator, and what choosing the reasoning topology is worth"
 version: 1.0.0
 doi: 10.5281/zenodo.placeholder
 date-released: 2026-10-14
