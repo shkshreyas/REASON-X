@@ -6,6 +6,7 @@ authors:
     affiliation: "School of Computer Science and Engineering (SCOPE), Vellore Institute of Technology (VIT), Chennai, India"
   - family-names: "Rishikeshan"
     given-names: "C. A."
+    email: "rishikeshan.ca@vit.ac.in"
     affiliation: "School of Computer Science and Engineering (SCOPE), Vellore Institute of Technology (VIT), Chennai, India"
 title: "Learning where to spend test-time compute: a utility-surface allocator, and what choosing the reasoning topology is worth"
 version: 1.0.1

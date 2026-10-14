@@ -8,9 +8,9 @@
 Official computational artifacts and replication suite for:  
 **"Learning where to spend test-time compute: a utility-surface allocator, and what choosing the reasoning topology is worth"**
 
-**Authors:** Shreyas Kumar, Dr. Rishikeshan C. A.  
+**Student Author:** Shreyas Kumar (23BAI1008)  
+**Corresponding Author & Supervisor:** Dr. Rishikeshan C. A. (`rishikeshan.ca@vit.ac.in`)  
 **Affiliation:** School of Computer Science and Engineering (SCOPE), Vellore Institute of Technology (VIT), Chennai 600127, Tamil Nadu, India  
-**Correspondence:** `shreyas.kumar2023@vitstudent.ac.in`, `rishikeshan.ca@vit.ac.in`  
 
 ---
 
