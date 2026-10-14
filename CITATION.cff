@@ -9,7 +9,8 @@ authors:
     email: "rishikeshan.ca@vit.ac.in"
     affiliation: "School of Computer Science and Engineering (SCOPE), Vellore Institute of Technology (VIT), Chennai, India"
 title: "Learning where to spend test-time compute: a utility-surface allocator, and what choosing the reasoning topology is worth"
-version: 1.0.1
+version: 1.0.0
+doi: 10.5281/zenodo.23360219
 date-released: 2026-10-14
 url: "https://github.com/shkshreyas/REASON-X"
 repository-code: "https://github.com/shkshreyas/REASON-X"
