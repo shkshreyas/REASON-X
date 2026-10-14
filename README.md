@@ -1,7 +1,7 @@
 # Learning Where to Spend Test-Time Compute: A Utility-Surface Allocator, and What Choosing the Reasoning Topology Is Worth
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.placeholder.svg)](https://doi.org/10.5281/zenodo.placeholder)
-[![GitHub Repository](https://img.shields.io/badge/GitHub-shkshreyas%2FREASON-X-blue?logo=github)](https://github.com/shkshreyas/REASON-X)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-shkshreyas%2FREASON--X-blue?logo=github)](https://github.com/shkshreyas/REASON-X)
 [![Hugging Face Checkpoints](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-reason--x--ckpt-yellow)](https://huggingface.co/datasets/shkshreyas/reason-x-ckpt/tree/main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
