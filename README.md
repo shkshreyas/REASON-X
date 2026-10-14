@@ -121,6 +121,8 @@ The vector graphics matching the paper are included in the [`figs/`](figs/) dire
 - **[`figs/fig_ladder.pdf`](figs/fig_ladder.pdf)** (Figure 4): Multi-panel plots illustrating stage progression ($S0 \to S5$) against the 1-D and 2-D empirical oracles.
 - **[`figs/fig_headroom.pdf`](figs/fig_headroom.pdf)** (Figure 5): Oracle headroom comparison across solvers and target budgets ($B \in \{1.5, 2.0, 3.0\}$).
 - **[`figs/fig_entropy.pdf`](figs/fig_entropy.pdf)** (Figure 6): Left: correlation of token vs. semantic entropy with solvability. Right: out-of-fold surface $R^2$ fit progression across feature sets.
+- **[`figs/fig_cost_measured.png`](figs/fig_cost_measured.png)**: Empirical measured token cost distributions per action.
+- **[`figs/fig_dominance.png`](figs/fig_dominance.png)**: Measured cost-accuracy Pareto frontier and dominance filtering.
 
 ---
 
@@ -128,41 +130,68 @@ The vector graphics matching the paper are included in the [`figs/`](figs/) dire
 
 ```text
 REASON-X/
-├── README.md                  # Comprehensive empirical report & replication documentation
-├── LICENSE                    # MIT License
-├── CITATION.cff               # Citation File Format 1.2.0 for Zenodo & GitHub
-├── requirements.txt           # Python package dependencies
-├── environment.yml            # Conda environment specification
-├── .gitignore                 # Git ignore rules (excludes archive/ and local checkpoints)
-├── REASON_X_5models.ipynb     # Master experiment notebook with complete pre-computed outputs
-└── figs/                      # Publication-ready vector graphics (PDFs)
-    ├── arch1_pipeline.pdf
-    ├── arch2_actionspace.pdf
-    ├── fig_entropy.pdf
-    ├── fig_gain_ci.pdf
-    ├── fig_headroom.pdf
-    └── fig_ladder.pdf
+├── README.md                          # Comprehensive empirical report & replication documentation
+├── LICENSE                            # MIT License
+├── CITATION.cff                       # Citation File Format 1.2.0 for Zenodo & GitHub
+├── requirements.txt                   # Pinned Python package dependencies
+├── environment.yml                    # Conda environment definition
+├── .gitignore                         # Git ignore rules (excludes archive/ and local checkpoints)
+├── notebooks/                         # Experiment and replication notebooks
+│   └── REASON_X_5models.ipynb         # Master experiment notebook with complete pre-computed outputs
+├── figs/                              # Publication vector graphics & generation scripts
+│   ├── src/
+│   │   ├── make_result_figures.py         # Reproduces Figures 3-6 (reads results/*.csv)
+│   │   └── make_cost_dominance_figures.py # Reproduces cost & dominance figures (reads results/costs.csv)
+│   ├── arch1_pipeline.pdf
+│   ├── arch2_actionspace.pdf
+│   ├── fig_entropy.pdf
+│   ├── fig_gain_ci.pdf
+│   ├── fig_headroom.pdf
+│   ├── fig_ladder.pdf
+│   ├── fig_cost_measured.png
+│   └── fig_dominance.png
+└── results/                           # Tabular evaluations and bootstrap distributions
+    ├── costs.csv                      # Per-action measured cost and accuracy (2 larger models)
+    ├── ladder.csv                     # Full stage-by-stage results across all 5 models
+    ├── bootstrap_ci.csv               # Paired-bootstrap 95% confidence intervals
+    ├── table1_budget_only.csv         # Table 1: Budget-only action set performance
+    ├── table2_stages.csv              # Table 2: Accuracy by stage and surface R2
+    ├── table3_oracles.csv             # Table 3: 1-D vs. 2-D oracle accuracy and headroom
+    ├── table4_surviving_actions.csv   # Table 4: Surviving actions, AUROC, and topology gain
+    └── table5_entropy_signals.csv     # Table 5: Feature correlations with solvability
 ```
 
 ---
 
-## 5. Experiment Checkpoints & Data Availability
+## 5. Regenerating Figures Without GPU Compute
+
+All empirical evaluations and resample distributions are included in [`results/`](results/). Any reader or reviewer can check numbers and regenerate all publication figures in seconds without running GPU inference:
+
+```bash
+cd figs/src
+python make_result_figures.py            # Generates fig_gain_ci, fig_headroom, fig_ladder, fig_entropy
+python make_cost_dominance_figures.py    # Generates fig_cost_measured, fig_dominance
+```
+
+---
+
+## 6. Experiment Checkpoints & Data Availability
 
 - **Hugging Face Hub Repository:**  
   🔗 **[huggingface.co/datasets/shkshreyas/reason-x-ckpt/tree/main](https://huggingface.co/datasets/shkshreyas/reason-x-ckpt/tree/main)**
 - **Retained Checkpoints:**  
   Full empirical utility tensors, tree traces, probe caches, and per-question accuracy matrices for the two larger models (**Qwen2.5-3B-Instruct** and **Phi-3.5-mini-instruct**) are archived on Hugging Face (`ckpt/`).
 - **Reproducibility of 1.5–1.7B Solvers:**  
-  As reported in the paper (Section 8.5 & Data Availability), checkpoints for the three smaller solvers (`Qwen2.5-1.5B`, `Qwen2.5-Math-1.5B`, `SmolLM2-1.7B`) were not retained due to storage constraints; they can be regenerated in ~2 hours each on a single T4 GPU using [`REASON_X_5models.ipynb`](REASON_X_5models.ipynb) with the fixed seed (`CFG.seed = 42`).
+  As reported in the paper (Section 8.5 & Data Availability), checkpoints for the three smaller solvers (`Qwen2.5-1.5B`, `Qwen2.5-Math-1.5B`, `SmolLM2-1.7B`) were not retained due to storage constraints; they can be regenerated in ~2 hours each on a single T4 GPU using [`notebooks/REASON_X_5models.ipynb`](notebooks/REASON_X_5models.ipynb) with the fixed seed (`CFG.seed = 42`).
 - **Tabular Artifacts:**  
-  All output CSVs (`table1_budget_only.csv` through `table5_entropy_signals.csv`, `ladder.csv`, `costs.csv`, `bootstrap_ci.csv`, `perq_accuracy.csv`) and `artifacts.zip` are directly downloadable from the Hugging Face repository.
+  All output CSVs (`table1_budget_only.csv` through `table5_entropy_signals.csv`, `ladder.csv`, `costs.csv`, `bootstrap_ci.csv`, `perq_accuracy.csv`) and `artifacts.zip` are included directly in [`results/`](results/) and mirrored on Hugging Face.
 
 ---
 
-## 6. Replication Instructions
+## 7. Full Replication Instructions
 
-### A. Inspecting Existing Results (No Compute Required)
-The master notebook [`REASON_X_5models.ipynb`](REASON_X_5models.ipynb) contains complete pre-computed execution outputs, logs, tables, and bootstrap statistical distributions.
+### A. Inspecting Existing Results (Zero Compute Required)
+Open the master notebook [`notebooks/REASON_X_5models.ipynb`](notebooks/REASON_X_5models.ipynb) in Jupyter or VS Code. All cells contain complete pre-computed execution outputs, logs, tables, and bootstrap statistical distributions.
 
 ### B. Environment Setup & Re-Running Analysis
 ```bash
@@ -181,12 +210,12 @@ pip install -r requirements.txt
 python -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='shkshreyas/reason-x-ckpt', repo_type='dataset', local_dir='./rx_out/ckpt')"
 
 # Launch Jupyter
-jupyter lab REASON_X_5models.ipynb
+jupyter lab notebooks/REASON_X_5models.ipynb
 ```
 
 ---
 
-## 7. Citation
+## 8. Citation
 
 If you use this codebase, methodology, or experimental findings, please cite:
 
@@ -213,5 +242,5 @@ If you use this codebase, methodology, or experimental findings, please cite:
 
 ---
 
-## 8. License
+## 9. License
 This repository is released under the [MIT License](LICENSE).
