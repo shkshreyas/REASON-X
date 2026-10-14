@@ -11,8 +11,8 @@ authors:
 title: "Learning where to spend test-time compute: a utility-surface allocator, and what choosing the reasoning topology is worth"
 version: 1.0.1
 date-released: 2026-10-14
-url: "https://github.com/shkshreyas/JTBA"
-repository-code: "https://github.com/shkshreyas/JTBA"
+url: "https://github.com/shkshreyas/REASON-X"
+repository-code: "https://github.com/shkshreyas/REASON-X"
 keywords:
   - "large-language-models"
   - "test-time-compute"

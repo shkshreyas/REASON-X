@@ -1,7 +1,7 @@
 # Learning Where to Spend Test-Time Compute: A Utility-Surface Allocator, and What Choosing the Reasoning Topology Is Worth
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.placeholder.svg)](https://doi.org/10.5281/zenodo.placeholder)
-[![GitHub Repository](https://img.shields.io/badge/GitHub-shkshreyas%2FJTBA-blue?logo=github)](https://github.com/shkshreyas/JTBA)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-shkshreyas%2FREASON-X-blue?logo=github)](https://github.com/shkshreyas/REASON-X)
 [![Hugging Face Checkpoints](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-reason--x--ckpt-yellow)](https://huggingface.co/datasets/shkshreyas/reason-x-ckpt/tree/main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
@@ -127,7 +127,7 @@ The vector graphics matching the paper are included in the [`figs/`](figs/) dire
 ## 4. Repository Structure
 
 ```text
-JTBA/
+REASON-X/
 ├── README.md                  # Comprehensive empirical report & replication documentation
 ├── LICENSE                    # MIT License
 ├── CITATION.cff               # Citation File Format 1.2.0 for Zenodo & GitHub
@@ -167,8 +167,8 @@ The master notebook [`REASON_X_5models.ipynb`](REASON_X_5models.ipynb) contains 
 ### B. Environment Setup & Re-Running Analysis
 ```bash
 # Clone the repository
-git clone https://github.com/shkshreyas/JTBA.git
-cd JTBA
+git clone https://github.com/shkshreyas/REASON-X.git
+cd REASON-X
 
 # Create and activate conda environment
 conda env create -f environment.yml
@@ -196,7 +196,7 @@ If you use this codebase, methodology, or experimental findings, please cite:
   author  = {Kumar, Shreyas and Rishikeshan, C. A.},
   journal = {arXiv preprint},
   year    = {2026},
-  url     = {https://github.com/shkshreyas/JTBA}
+  url     = {https://github.com/shkshreyas/REASON-X}
 }
 
 @software{kumar2026jtba_code,
@@ -207,7 +207,7 @@ If you use this codebase, methodology, or experimental findings, please cite:
   publisher = {Zenodo},
   version   = {v1.0.0},
   doi       = {10.5281/zenodo.placeholder},
-  url       = {https://github.com/shkshreyas/JTBA}
+  url       = {https://github.com/shkshreyas/REASON-X}
 }
 ```
 
