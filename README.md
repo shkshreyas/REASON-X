@@ -40,16 +40,13 @@ JTBA/
 ├── environment.yml                    # Conda environment definition
 ├── .gitignore                         # Git exclusion rules
 ├── REASON_X_5models.ipynb             # Master replication notebook with full pre-computed outputs
-├── figs/                              # Publication vector graphics
-│   ├── arch1_pipeline.pdf
-│   ├── arch2_actionspace.pdf
-│   ├── fig_entropy.pdf
-│   ├── fig_gain_ci.pdf
-│   ├── fig_headroom.pdf
-│   └── fig_ladder.pdf
-└── archive/                           # Deprecated / raw Kaggle notebooks (excluded by git)
-    ├── notebook5a08df74fa.ipynb
-    └── notebookab6d1f1d7c (1).ipynb
+└── figs/                              # Publication vector graphics
+    ├── arch1_pipeline.pdf
+    ├── arch2_actionspace.pdf
+    ├── fig_entropy.pdf
+    ├── fig_gain_ci.pdf
+    ├── fig_headroom.pdf
+    └── fig_ladder.pdf
 ```
 
 ---
