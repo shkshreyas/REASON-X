@@ -19,10 +19,13 @@ Official computational artifacts and replication suite for:
 Test-time compute in Large Language Models (LLMs) is typically scaled by increasing parallel sample count $b$ under fixed Self-Consistency (1-D budget allocation). Prior methods such as **AdaCompute** ([Zhai et al., arXiv:2604.14853](https://arxiv.org/abs/2604.14853)) restrict adaptive decisions to budget selection alone.
 
 **REASON-X** (Joint Topology-Budget Allocation, **JTBA**) generalizes test-time compute allocation to a joint 2-D action space:
-$$\mathcal{A} = \{ \text{SC}, \text{Best-of-}N, \text{Tree-of-Thought (ToT)}, \text{Forest-of-Thought (FoT)} \} \times \{ b \in \mathcal{B} \}$$
+
+$$
+\mathcal{A} = \{ \text{SC}, \text{Best-of-}N, \text{Tree-of-Thought (ToT)}, \text{Forest-of-Thought (FoT)} \} \times \{ b \in \mathcal{B} \}
+$$
 
 ### Methodological Principles:
-1. **Utility-Surface Regression ($f_\theta(x, a) \approx \mathrm{Acc}(x, a)$):** Direct regression of continuous utility surfaces across all candidate actions preserves ordinal similarity and scales the training signal by $|\mathcal{A}|\times$ compared to discrete classification.
+1. **Utility-Surface Regression** — $f_\theta(x, a) \approx \mathrm{Acc}(x, a)$: Direct regression of continuous utility surfaces across all candidate actions preserves ordinal similarity and scales the training signal by $|\mathcal{A}|$ compared to discrete classification.
 2. **Lagrangian Dual Optimization:** Solves the constrained allocation problem under target average compute budgets $B \in \{1.5, 2.0, 3.0\}$ via dual bisection.
 3. **Leak-Free Cross-Validation:** Enforces 5-fold grouped cross-validation partitioned strictly by question ID across independent random seeds.
 4. **Conformal Risk Control (CRC):** Calibrates escalation confidence thresholds ($\tau = 0.95$) with prefix KV-cache reuse.
@@ -56,17 +59,17 @@ JTBA/
 Evaluated on **200 benchmark instances** (100 from **MATH-500** and 100 from **GSM8K**) across **Qwen2.5-3B-Instruct** and **Phi-3.5-mini-instruct** on dual NVIDIA Tesla T4 GPUs:
 
 ### Table 1: Accuracy Averaged over Budgets $B \in \{1.5, 2.0, 3.0\}$ (Budget-Only Space)
-| Model | Fixed-$B$ | Random | S0 (AdaCompute) | S5b (Ours, 1-D) | 1-D Oracle [UB] | Gain over S0 (pp) |
+| Model | Fixed-B | Random | S0 (AdaCompute) | S5b (Ours, 1-D) | 1-D Oracle [UB] | Gain over S0 (pp) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Qwen2.5-3B-Instruct** | 51.75% | 53.29% | 50.24% | **54.25%** | 59.34% | **+4.02 pp** |
 | **Phi-3.5-mini-instruct** | 53.51% | 54.95% | 53.47% | **55.78%** | 61.45% | **+2.31 pp** |
 
 ### Statistical Significance (10,000 Paired Bootstrap Resamples)
-- **Learner Gain ($S5b - S0$):**
+- **Learner Gain** ($S5b - S0$):
   - `Qwen2.5-3B-Instruct`: $+4.02\text{ pp}$ [95% CI: $+2.71, +5.44$], $p = 0.0001$ (Significant)
   - `Phi-3.5-mini-instruct`: $+2.31\text{ pp}$ [95% CI: $+1.39, +3.28$], $p = 0.0001$ (Significant)
   - **Pooled:** $+3.17\text{ pp}$ [95% CI: $+2.31, +4.10$], $p = 0.0001$ (Significant)
-- **Topology Gain ($S5 - S5b$):**
+- **Topology Gain** ($S5 - S5b$):
   - `Qwen2.5-3B-Instruct`: $+1.43\text{ pp}$ [95% CI: $+0.20, +2.84$], $p = 0.0212$ (Nominally Significant)
   - `Phi-3.5-mini-instruct`: $-0.20\text{ pp}$ [95% CI: $-1.73, +1.33$], $p = 0.7990$ (n.s.)
   - **Pooled:** $+0.62\text{ pp}$ [95% CI: $-0.42, +1.65$], $p = 0.2338$ (n.s.)
