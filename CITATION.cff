@@ -3,17 +3,17 @@ message: "If you use this software or computational artifact, please cite it as 
 authors:
   - family-names: "Kumar"
     given-names: "Shreyas"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
     affiliation: "School of Computer Science and Engineering (SCOPE), Vellore Institute of Technology (VIT), Chennai, India"
   - family-names: "Rishikeshan"
     given-names: "C. A."
+    email: "rishikeshan.ca@vit.ac.in"
     affiliation: "School of Computer Science and Engineering (SCOPE), Vellore Institute of Technology (VIT), Chennai, India"
-title: "REASON-X: Joint Topology-Budget Allocation via Utility-Surface Regression for Test-Time Compute"
+title: "Learning where to spend test-time compute: a utility-surface allocator, and what choosing the reasoning topology is worth"
 version: 1.0.0
-doi: 10.5281/zenodo.placeholder
+doi: 10.5281/zenodo.23360219
 date-released: 2026-10-14
-url: "https://github.com/shkshreyas/JTBA"
-repository-code: "https://github.com/shkshreyas/JTBA"
+url: "https://github.com/shkshreyas/REASON-X"
+repository-code: "https://github.com/shkshreyas/REASON-X"
 keywords:
   - "large-language-models"
   - "test-time-compute"

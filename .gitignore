@@ -11,6 +11,7 @@ archive/
 rx_out/
 ckpt/
 _hf_pull/
+artifacts_updated/
 
 # Python & Jupyter Caches
 __pycache__/
